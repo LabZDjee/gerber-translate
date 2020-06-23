@@ -14,6 +14,6 @@ with:
 
 ## Management of Zeroes
 
-Header of Gerber input file is parsed for a FS (Format Specification) command. If `%FSL` is found, leading zeroes are omitted. If %FST is found, which means omit trailing zeroes, process is aborted. Otherwise, leading zeroes are padded
+Header of Gerber input file is parsed for a FS (Format Specification) command. If `%FSL` is found, leading zeroes are omitted. If `%FST` is found, which means omit trailing zeroes, process is aborted. Otherwise, leading zeroes are padded
 
-Reason why trailing zeroes are not addressed is this case is very rare, deprecated, and too unnatural and tricky to manage for the rare cases it will be met
+Reason why trailing zeroes are not addressed is this case this type is very rare, deprecated, and too unnatural and tricky to manage for the rare cases it will be met
