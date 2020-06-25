@@ -29,6 +29,10 @@ const zeroOmit = inputLines.some((str) => {
 
 const processor = eval(`(x, y) => ({${process.argv[4]}})`); /* jshint ignore:line */
 
+function isAcceptableNumber(n) {
+  return typeof n === "number" && isFinite(n);
+}
+
 function processLine(str) {
   const regex = /^X([+-]?\d+)Y([+-]?\d+)(.+)\*$/;
   const r = regex.exec(str);
@@ -46,6 +50,12 @@ function processLine(str) {
     if (p.y === undefined) {
       p.y = y;
     }
+    if (!isAcceptableNumber(p.x) || !isAcceptableNumber(p.y)) {
+      console.log("Abort: computed x and y are not acceptable numbers. Cannot process any further.");
+      process.exit();
+    }
+    p.x = Math.round(p.x);
+    p.y = Math.round(p.y);
     if (p.x < 0) {
       xHasSign = ["-"];
     }
